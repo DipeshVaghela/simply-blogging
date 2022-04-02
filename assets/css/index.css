@@ -1,0 +1,260 @@
+/* Local Font Family */
+@font-face {
+  font-family: "GR Medium";
+  src: url(../fonts/gotham-rounded/GothamRounded-Medium.otf);
+}
+@font-face {
+  font-family: "GR Light";
+  src: url(../fonts/gotham-rounded/GothamRounded-Light.otf);
+}
+@font-face {
+  font-family: "GR Bold";
+  src: url(../fonts/gotham-rounded/GothamRounded-Bold.otf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "GR Medium";
+}
+
+html {
+  font-size: calc(0.5rem + 0.525vw);
+}
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Header style */
+
+.header {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+}
+.brand-logo-link {
+  width: 10em;
+}
+.nav-link {
+  border-bottom: 2px solid transparent;
+  transition: all 1s ease-in-out;
+}
+.nav-link:hover {
+  border-bottom: 2px solid black;
+}
+#error-message {
+  margin-right: auto;
+  font-family: "GR Bold";
+  color: red;
+}
+
+/* articles */
+.line-break {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#article-form {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  width: 70%;
+}
+.article-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 0.5rem;
+  border-left: 5px solid orangered;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease-in-out;
+}
+
+.article-card:hover {
+  transform: translateY(-10px);
+}
+.artical-card-title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  padding-right: 2em;
+}
+.artical-card-author {
+  display: inline-block;
+  font-family: "GR Bold";
+  font-size: 0.8em;
+  align-self: flex-end;
+}
+
+.artical-delete-icon {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  display: inline-block;
+  width: 1.25em;
+}
+
+.artical-card-desc {
+  font-family: "GR Light";
+  font-size: 1em;
+}
+
+.artical-card-author {
+  display: inline-block;
+  font-family: "GR Medium";
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Singal Artical */
+
+#singal-artical {
+  position: relative;
+  margin: 2.5em auto;
+  padding: 3em;
+  padding-bottom: 1em;
+  border-radius: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 5px solid orangered;
+  display: flex;
+  flex-direction: column;
+}
+
+#singal-artical > img {
+  position: absolute;
+  width: 1.5em;
+  top: 1em;
+  right: 1em;
+}
+#singal-artical-title {
+  font-family: "GR Bold";
+  font-size: 2em;
+  margin: 0px;
+  margin-bottom: 0.5em;
+  line-height: 1;
+}
+
+#singal-artical-desc {
+  font-family: "GR Light";
+  margin-bottom: 2em;
+}
+
+#singal-artical-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+#singal-artical-author {
+  font-family: "GR Medium";
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#singal-artical-time {
+  font-family: "GR Medium";
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* News Letters */
+
+#news-letter-form {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  width: 70%;
+}
+.news-letter-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 0.5rem;
+  border-left: 5px solid green;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease-in-out;
+}
+
+.news-letter-card:hover {
+  transform: translateY(-10px);
+}
+.news-letter-card-title {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  padding-right: 2em;
+}
+.news-letter-card-author {
+  display: inline-block;
+  font-family: "GR Bold";
+  font-size: 0.8em;
+  align-self: flex-end;
+}
+
+.news-letter-delete-icon {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  display: inline-block;
+  width: 1.25em;
+}
+
+.news-letter-card-desc {
+  font-family: "GR Light";
+  font-size: 1em;
+}
+
+.news-letter-card-author {
+  display: inline-block;
+  font-family: "GR Medium";
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Singal Artical */
+
+#singal-news-letter {
+  position: relative;
+  margin: 2.5em auto;
+  padding: 3em;
+  padding-bottom: 1em;
+  border-radius: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 5px solid green;
+  display: flex;
+  flex-direction: column;
+}
+
+#singal-news-letter > img {
+  position: absolute;
+  width: 1.5em;
+  top: 1em;
+  right: 1em;
+}
+#singal-news-letter-title {
+  font-family: "GR Bold";
+  font-size: 2em;
+  margin: 0px;
+  margin-bottom: 0.5em;
+  line-height: 1;
+}
+
+#singal-news-letter-desc {
+  font-family: "GR Light";
+  margin-bottom: 2em;
+}
+
+#singal-news-letter-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+#singal-news-letter-author {
+  font-family: "GR Medium";
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#singal-news-letter-time {
+  font-family: "GR Medium";
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Footer*/
+.list {
+  padding: 0px;
+}

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simply Blogging</title>
+
+    <!-- External css -->
+    <link rel="stylesheet" href="assets/css/index.css" />
+
+    <!-- External bootstrap css link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-------------------------------------------------------- Header -------------------------------------------------------->
+    <header class="header">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container">
+          <a href="" class="brand-logo-link"
+            ><img src="assets/img/simplilearn_logo.svgz" alt="brand-logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarSupportedContent"
+          >
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">Home</a>
+              </li>
+
+              <li class="nav-item p-0">
+                <a
+                  class="nav-link"
+                  data-bs-toggle="modal"
+                  data-bs-target="#loginModel"
+                  id="admin-login-button"
+                  >Admin Login</a
+                >
+              </li>
+
+              <li class="nav-item p-0">
+                <a class="nav-link" id="admin-name"></a>
+              </li>
+
+              <li class="nav-item p-0">
+                <a
+                  class="nav-link"
+                  id="admin-logout-button"
+                  onclick="logoutAdmin()"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Admin Login Model -->
+    <div
+      class="modal fade"
+      id="loginModel"
+      tabindex="-1"
+      aria-labelledby="loginModel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModel">Login</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <!-- Login form -->
+            <form onsubmit="adminLogin(event)" autocomplete="off">
+              <div class="mb-3">
+                <label for="entered-username" class="col-form-label"
+                  >Username :</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="entered-username"
+                  name="entered-username"
+                  minlength="8"
+                  maxlength="15"
+                  required
+                  onfocus="removeErrorMessage()"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="entered-password" class="col-form-label"
+                  >Password :</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="entered-password"
+                  name="entered-password"
+                  required
+                  minlength="8"
+                  maxlength="15"
+                  onfocus="removeErrorMessage()"
+                />
+              </div>
+              <div class="mt-4 d-flex align-items-center">
+                <span id="error-message"></span>
+                <button
+                  type="button"
+                  class="btn btn-warning text-white mx-2"
+                  onclick="resetLoginForm()"
+                >
+                  RESET
+                </button>
+                <input type="submit" class="btn btn-success" value="LOGIN" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------------------------------------------------------  Articals -------------------------------------------------------->
+    <div class="container w-100" id="articals">
+      <div class="row pt-5 d-flex justify-content-between">
+        <h2 class="mb-0 col-lg-5 col-5" onclick="showArticals()">Articals</h2>
+        <span
+          class="btn btn-primary col-lg-1 col-2 mx-3"
+          id="add-artical-button"
+          onclick="openArticalForm()"
+          >ADD</span
+        >
+      </div>
+      <!-- Artical Form -->
+      <div
+        id="article-form"
+        class="mx-auto my-5 py-4 px-5"
+        style="display: none"
+      >
+        <form class="row" onsubmit="addArticle(event)" autocomplete="off">
+          <div class="col-lg-6 col-12">
+            <label for="article-title" class="col-form-label">Title :</label>
+            <input
+              type="text"
+              class="form-control"
+              id="article-title"
+              placeholder="Enter title"
+              required
+            />
+          </div>
+          <div class="col-lg-6 col-12 mt-lg-0 mt-4">
+            <label for="article-author" class="col-form-label"
+              >Author Name :</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="article-author"
+              placeholder="Enter author name"
+              required
+            />
+          </div>
+          <div class="col-12 mt-4">
+            <label for="article-desc" class="col-form-label"
+              >Description :</label
+            >
+            <textarea
+              class="form-control"
+              id="article-desc"
+              placeholder="Enter description"
+              required
+            ></textarea>
+          </div>
+          <div class="col-lg-2 lg-sm-3 col-5">
+            <input
+              type="submit"
+              class="form-control btn btn-success mt-3 col-2"
+              value="ADD"
+            />
+          </div>
+          <div class="col-lg-2 lg-sm-3 col-5">
+            <button
+              type="button"
+              class="form-control btn btn-danger mt-3 col-2"
+              onclick="closeArticalForm()"
+            >
+              CLOSE
+            </button>
+          </div>
+        </form>
+      </div>
+      <hr class="line-break" />
+      <!-- All Artical -->
+      <div class="row justify-content-center my-3" id="articals-area"></div>
+
+      <!-- Singel Artical -->
+      <div id="singal-artical" class="col-lg-9 col-11">
+        <img
+          src="./assets/img/arrow-left-circle.svg"
+          alt="not found"
+          onclick="showArticals()"
+        />
+        <h1 id="singal-artical-title">title</h1>
+        <p id="singal-artical-desc">desc</p>
+        <div id="singal-artical-footer">
+          <span id="singal-artical-author"> author </span>
+          <span id="singal-artical-time"> time </span>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------------------------------------  News Letters -------------------------------------------------------->
+    <div class="container w-100 my-5" id="news-letters">
+      <div class="row pt-5 d-flex justify-content-between">
+        <h2 class="mb-0 col-lg-5 col-5" onclick="showNewsLetters()">
+          News Letters
+        </h2>
+        <span
+          class="btn btn-primary col-lg-1 col-2 mx-3"
+          id="add-news-letter-button"
+          onclick="openNewsLetterForm()"
+          >ADD</span
+        >
+      </div>
+      <!-- Artical Form -->
+      <div
+        id="news-letter-form"
+        class="mx-auto my-5 py-4 px-5"
+        style="display: none"
+      >
+        <form class="row" onsubmit="addNewsLetter(event)" autocomplete="off">
+          <div class="col-lg-6 col-12">
+            <label for="news-letter-title" class="col-form-label"
+              >Title :</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="news-letter-title"
+              placeholder="Enter title"
+              required
+            />
+          </div>
+          <div class="col-lg-6 col-12 mt-lg-0 mt-4">
+            <label for="news-letter-author" class="col-form-label"
+              >Author Name :</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="news-letter-author"
+              placeholder="Enter author name"
+              required
+            />
+          </div>
+          <div class="col-12 mt-4">
+            <label for="news-letter-desc" class="col-form-label"
+              >Description :</label
+            >
+            <textarea
+              class="form-control"
+              id="news-letter-desc"
+              placeholder="Enter description"
+              required
+            ></textarea>
+          </div>
+          <div class="col-lg-2 lg-sm-3 col-5">
+            <input
+              type="submit"
+              class="form-control btn btn-success mt-3 col-2"
+              value="ADD"
+            />
+          </div>
+          <div class="col-lg-2 lg-sm-3 col-5">
+            <button
+              type="button"
+              class="form-control btn btn-danger mt-3 col-2"
+              onclick="closeNewsLetterForm()"
+            >
+              CLOSE
+            </button>
+          </div>
+        </form>
+      </div>
+      <hr class="line-break" />
+      <!-- All News Letter -->
+      <div class="row justify-content-center my-3" id="news-letters-area"></div>
+
+      <!-- Singel News Letter -->
+      <div id="singal-news-letter" class="col-lg-9 col-11">
+        <img
+          src="./assets/img/arrow-left-circle.svg"
+          alt="not found"
+          onclick="showNewsLetters()"
+        />
+        <h1 id="singal-news-letter-title">title</h1>
+        <p id="singal-news-letter-desc">desc</p>
+        <div id="singal-news-letter-footer">
+          <span id="singal-news-letter-author"> author </span>
+          <span id="singal-news-letter-time"> time </span>
+        </div>
+      </div>
+    </div>
+
+    <!-------------------------------------------------------- Footer -------------------------------------------------------->
+    <div class="container-fluid footer bg-dark text-light p-5">
+      <div class="row">
+        <!-- contact-us -->
+        <div class="col-lg-5 col-12 text-center">
+          <h3 class="h3 mb-3">Contact Us</h3>
+          <ul class="list">
+            <li>Location : India</li>
+            <li>Call : +91 9999999999</li>
+            <li>Email : simplilearn@gmail.com</li>
+          </ul>
+        </div>
+        <!-- About -->
+        <div class="col-lg-5 col-12 mt-lg-0 mt-5 text-center">
+          <h3 class="h3 mb-3">Simplilearn</h3>
+          <p>
+            Simplilearn is the world’s #1 online bootcamp and one of the world’s
+            leading certification training providers. We partner with companies
+            and individuals to address their unique needs, providing training
+            and coaching that helps working professionals achieve their career
+            goals.
+          </p>
+        </div>
+
+        <!-- Courses -->
+        <div
+          class="col-lg-10 col-12 mx-auto mt-5 d-flex justify-content-between align-items-center p-0"
+        >
+          <h3 class="m-0">Trending Courses</h3>
+          <p class="m-0 px-5">
+            Java Certification Course | Python Certification Training Course |
+            Certified ScrumMaster (CSM) Certification Training | Certified
+            ScrumMaster (CSM) Certification Training | CISSP Certification
+            Training | AWS Solutions Architect Certification Training Course
+          </p>
+        </div>
+
+        <div class="col-12 text-center mt-5">
+          © 2009-2022 - Simplilearn Solutions. All Rights Reserved. The
+          certification names are the trademarks of their respective owners.
+        </div>
+      </div>
+    </div>
+    <!-- External bootstrap javascript link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- External javascript link -->
+    <script src="assets/script/data.js"></script>
+    <script src="assets/script/index.js" defer="true"></script>
+  </body>
+</html>
