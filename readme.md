@@ -17,12 +17,12 @@ To run this project locally on computer do the following below steps :
 Here, there are mainly two roles
 
 1. Admin
--- Can add and delete articals and news-letters
--- Admin username : **dipeshvaghela**  
--- Admin password : **Admin@5898**
+1) Can add and delete articals and news-letters
+2) Admin username : **dipeshvaghela**  
+3) Admin password : **Admin@5898**
 
 2. Customer
-   -- Can only read the articals and news-letters
+1) Can only read the articals and news-letters
 
 I have managed localstorage for storing admin-login-credential
 so only one time it will ask for verification
