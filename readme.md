@@ -17,9 +17,9 @@ To run this project locally on computer do the following below steps :
 Here, there are mainly two roles
 
 1. Admin
-   -- Can add and delete articals and news-letters
-   -- Admin username : dipeshvaghela  
-   -- Admin password : Admin@5898
+-- Can add and delete articals and news-letters
+-- Admin username : **dipeshvaghela**  
+-- Admin password : **Admin@5898**
 
 2. Customer
    -- Can only read the articals and news-letters
